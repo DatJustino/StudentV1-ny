@@ -16,6 +16,11 @@ public class StudRESTController {
     @Autowired
     StudentRepository studentRepository;
 
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
     @GetMapping("/stud1/{name}")
     public Student getstud1byname(@PathVariable String name) {
         return new Student(name);
