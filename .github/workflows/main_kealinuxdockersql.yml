@@ -6,7 +6,7 @@ name: Build and deploy JAR app to Azure Web App - kealinuxdockersql
 on:
   push:
     branches:
-      - Main
+      - main
   workflow_dispatch:
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
+    
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v2
@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'kealinuxdockersql'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2DAF0CF71D1843CEB31B9C38A4130CDF }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_437BD6227E5D4F2EA4E76C8096313F88 }}
           package: '*.jar'
